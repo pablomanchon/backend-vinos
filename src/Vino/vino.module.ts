@@ -1,26 +1,32 @@
-// vino.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { VinoService } from './vino.service';
-import { VinoController } from './vino.controller';
-import { Vino } from './vino.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      database: 'vinos',
+      type: 'postgres',
+      username: 'vinos',
+      password: 'mansElguapYZjX6N1vH2no3Y22liCebaEZjchon',
+      database: 'vinos_86f8',
       entities: ['dist/**/*.entity{.ts,.js}'],
-      host: 'localhost',
-      logging: true,
-      password: 'root',
-      port: 3306,
+      host: 'dpg-ckk0iqb6fquc739fger0-a.oregon-postgres.render.com',
+      port: 5432,
       synchronize: true,
-      type: 'mysql',
-      username: 'root',
+      logging: true,
+      retryDelay: 3000,
+      retryAttempts: 10,
+      ssl: false,
+      extra: {
+        ssl: false
+          ? {
+              rejectUnauthorized: false,
+            }
+          : null,
+      },
     }),
-    TypeOrmModule.forFeature([Vino, VinoService]),
+    VinoModule,
   ],
-  providers: [VinoService],
-  controllers: [VinoController],
+  providers: [],
+  controllers: [],
 })
 export class VinoModule {}

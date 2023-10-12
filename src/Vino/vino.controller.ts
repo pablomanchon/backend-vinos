@@ -10,7 +10,7 @@ import {
 import { VinoService } from './vino.service';
 import { Vino } from './vino.entity';
 
-@Controller('/')
+@Controller('/vinos')
 export class VinoController {
   constructor(private readonly vinoService: VinoService) {}
 
