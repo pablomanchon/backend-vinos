@@ -15,9 +15,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       logging: true,
       retryDelay: 3000,
       retryAttempts: 10,
-      ssl: false,
+      ssl: true,
       extra: {
-        ssl: false
+        ssl: true
           ? {
               rejectUnauthorized: false,
             }
