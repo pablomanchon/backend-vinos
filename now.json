@@ -8,7 +8,11 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/api/vinos(.*)",
+      "dest": "/main.ts"
+    },
+    {
+      "src": "/(.*)",
       "dest": "/main.ts"
     }
   ]
