@@ -1,5 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { VinoService } from './vino.service';
+import { VinoController } from './vino.controller';
+import { Vino } from './vino.entity';
 
 @Module({
   imports: [
@@ -24,9 +27,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
           : null,
       },
     }),
-    VinoModule,
+    TypeOrmModule.forFeature([Vino, VinoService]),
   ],
-  providers: [],
-  controllers: [],
+  providers: [VinoService],
+  controllers: [VinoController],
 })
 export class VinoModule {}
