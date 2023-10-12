@@ -17,7 +17,7 @@ import { MercadoPagoModule } from './mercado-pago/mercado-pago.module';
         username: process.env.DATABASE_USERNAME,
         password: process.env.DATABASE_PASSWORD,
         host: process.env.DATABASE_HOST,
-        port: parseInt(process.env.DATABASE_PORT),
+        port: parseInt(3000),
         entities: ['dist/**/*.entity{.ts.js}'],
         autoLoadEntities: true,
         synchronize: true,
