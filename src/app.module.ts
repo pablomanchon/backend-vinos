@@ -4,31 +4,26 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { database, host, password, port, username } from './Config/mysql';
 import { ConfigService } from '@nestjs/config';
 import { ConfigModule } from '@nestjs/config/dist';
-import { MercadoPagoController } from './mercado-pago/mercado-pago.controller';
 import { MercadoPagoModule } from './mercado-pago/mercado-pago.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
+      useFactory: () => ({
         type: 'mysql',
-        database: process.env.DATABASE,
-        username: process.env.DATABASE_USERNAME,
-        password: process.env.DATABASE_PASSWORD,
-        host: config.get(process.env.DATABASE_HOST),
-        port: parseInt(config.get("3000")),
+        database: 'vinos',
+        username: 'admin',
+        password: 'mendozaArgentina',
+        host: 'database-1.cs8a1x1miveo.us-east-2.rds.amazonaws.com',
+        port: 3006,
         entities: ['dist/**/*.entity{.ts.js}'],
         autoLoadEntities: true,
         synchronize: true,
         logging: true,
-        logger: 'file',
       }),
     }),
-    ConfigModule.forRoot({
-      isGlobal: true,
-      envFilePath: '.env',
-    }),
+
     VinoModule,
     MercadoPagoModule,
   ],
