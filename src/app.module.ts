@@ -10,7 +10,7 @@ import { MercadoPagoModule } from './mercado-pago/mercado-pago.module';
   imports: [
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
-      useFactory: () => ({
+      useFactory: (config: ConfigService) => ({
         type: 'mysql',
         database: 'vinos',
         username: 'admin',
@@ -23,7 +23,9 @@ import { MercadoPagoModule } from './mercado-pago/mercado-pago.module';
         logging: true,
       }),
     }),
-
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     VinoModule,
     MercadoPagoModule,
   ],
