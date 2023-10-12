@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { VinoService } from './vino.service';
 import { VinoController } from './vino.controller';
 import { Vino } from './vino.entity';
+import { MercadoPagoModule } from 'src/mercado-pago/mercado-pago.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { Vino } from './vino.entity';
       },
     }),
     TypeOrmModule.forFeature([Vino, VinoService]),
+    MercadoPagoModule,
   ],
   providers: [VinoService],
   controllers: [VinoController],
