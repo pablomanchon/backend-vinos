@@ -6,7 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     TypeOrmModule.forRoot({
       type: 'postgres',
       username: 'vinos',
-      password: 'mansElguapYZjX6N1vH2no3Y22liCebaEZjchon',
+      password: 'sElguapYZjX6N1vH2no3Y22liCebaEZj',
       database: 'vinos_86f8',
       entities: ['dist/**/*.entity{.ts,.js}'],
       host: 'dpg-ckk0iqb6fquc739fger0-a.oregon-postgres.render.com',
