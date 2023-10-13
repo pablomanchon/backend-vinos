@@ -11,12 +11,6 @@ async function bootstrap() {
     new ExpressAdapter(server),
   );
 
-  app.enableCors({
-    origin: 'https://we-wines.vercel.app',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-  });
-
   await app.listen(3000);
 }
 
