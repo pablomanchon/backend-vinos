@@ -1,0 +1,15 @@
+# fly.toml
+
+app = "backend-vinos" # Sustituye "nombre-de-tu-app" con el nombre deseado para tu aplicación
+
+[[services]]
+  internal_port = 3000 # El puerto en el que tu aplicación NestJS escucha
+  protocol = "tcp"
+
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
